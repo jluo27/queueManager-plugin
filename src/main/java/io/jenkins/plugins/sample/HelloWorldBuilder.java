@@ -2,6 +2,7 @@ package io.jenkins.plugins.sample;
 
 import hudson.Launcher;
 import hudson.Extension;
+import hudson.EnvVars;
 import hudson.FilePath;
 import hudson.util.FormValidation;
 import hudson.model.AbstractProject;
@@ -11,9 +12,12 @@ import hudson.tasks.Builder;
 import hudson.tasks.BuildStepDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundSetter;
@@ -21,7 +25,7 @@ import org.kohsuke.stapler.DataBoundSetter;
 public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
     private final String name;
-    private boolean useFrench;
+    private int maxBuildTime;
 
     @DataBoundConstructor
     public HelloWorldBuilder(String name) {
@@ -32,15 +36,41 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
         return name;
     }
 
-    public boolean isUseFrench() {
+    public void setMaxBuildTime(int maxBuildTime) {
+        this.maxBuildTime = maxBuildTime;
+    }
+
+    /*public boolean isUseFrench() {
         return useFrench;
+    }*/
+
+    /*@Override
+    public void perform(Run<?,?> run, EnvVars env, TaskListener listener) throws InterruptedException, IOException {
+        listener.getLogger().println(run.getTimeInMillis() - run.getStartTimeInMillis());
+    }*/
+
+    @Override
+    public void perform(Run<?,?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
+        //listener.getLogger().println("CAN YOU HEAR ME!!!");
+        //listener.getLogger().println("OMO");
+        //listener.getLogger().println(run.getTimeInMillis() - run.getStartTimeInMillis());
+        //listener.getLogger().println(run.getTimeInMillis());
+        //listener.getLogger().println(run.getStartTimeInMillis());
+
+        int totTime = 0;
+        /*while (true) {
+            if (run.isBuilding()) {
+                listener.getLogger().println(run.getTimestampString());
+            }
+            Thread.sleep(5000);
+            totTime += 5000;
+            if (totTime >= 1000000) break;
+        }*/
+
+
     }
 
-    @DataBoundSetter
-    public void setUseFrench(boolean useFrench) {
-        this.useFrench = useFrench;
-    }
-
+    /*
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
         if (useFrench) {
@@ -48,7 +78,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
         } else {
             listener.getLogger().println("Hello, " + name + "!");
         }
-    }
+    }*/
 
     @Symbol("greet")
     @Extension

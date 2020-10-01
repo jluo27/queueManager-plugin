@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Group-Id: io.jenkins.plugins
+Short-Name: queueManager
+Long-Name: TODO Plugin
+Minimum-Java-Version: 1.8
+Plugin-Version: 1.0-SNAPSHOT (private-b2536b94-luo)
+Hudson-Version: 2.164.1
+Jenkins-Version: 2.164.1
+Plugin-Dependencies: structs:1.19
+Plugin-Developers: 
+Libraries: C:\Users\luo\Documents\Justin's Stuff\FNMA\Jenkins Plugin\q
+ ueueManager-plugin\src\main\resources,C:\Users\luo\Documents\Justin's
+  Stuff\FNMA\Jenkins Plugin\queueManager-plugin\target\classes
+Resource-Path: C:\Users\luo\Documents\Justin's Stuff\FNMA\Jenkins Plug
+ in\queueManager-plugin\src\main\webapp
+
