@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Built-By: luo
+Created-By: Apache Maven
+Build-Jdk: 1.8.0_66
+Extension-Name: queueManager
+Specification-Title: The Jenkins Plugins Parent POM Project
+Implementation-Title: queueManager
+Implementation-Version: 1.0-SNAPSHOT
+Group-Id: io.jenkins.plugins
+Short-Name: queueManager
+Long-Name: TODO Plugin
+Minimum-Java-Version: 1.8
+Plugin-Version: 1.0-SNAPSHOT (private-09/30/2020 05:16-luo)
+Hudson-Version: 2.164.1
+Jenkins-Version: 2.164.1
+Plugin-Dependencies: structs:1.19
+Plugin-Developers: 
+
